@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SGIRI.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=RobotoDraft' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "RobotoDraft", "Roboto", sans-serif
+        }
+
+        .sgiri-bar-block .sgiri-bar-item {
+            padding: 16px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Side Navigation -->
+    <nav class="sgiri-sidebar sgiri-bar-block sgiri-collapse sgiri-white sgiri-animate-left sgiri-card"
+        style="z-index:3;width:320px;" id="mySidebar">
+        <a href="javascript:void(0)" class="sgiri-bar-item sgiri-button sgiri-border-bottom sgiri-large"><img
+                src="./img/avatar3 (1).png" style="width:60%;"></a>
+        <a href="javascript:void(0)" onclick="sgiri_close()" title="Close Sidemenu"
+            class="sgiri-bar-item sgiri-button sgiri-hide-large sgiri-large">Close <i class="fa fa-remove"></i></a>
+        <a href="javascript:void(0)"
+            class="sgiri-bar-item sgiri-button sgiri-dark-grey sgiri-button sgiri-hover-black sgiri-left-align"
+            onclick="document.getElementById('id01').style.display='block'">New Message <i
+                class="sgiri-padding fa fa-pencil"></i></a>
+        <a id="myBtn" onclick="myFunc('Demo1')" href="javascript:void(0)" class="sgiri-bar-item sgiri-button"><i
+                class="fa fa-inbox sgiri-margin-right"></i>Inbox (3)<i
+                class="fa fa-caret-down sgiri-margin-left"></i></a>
+        <div id="Demo1" class="sgiri-hide sgiri-animate-left">
+            <a href="javascript:void(0)"
+                class="sgiri-bar-item sgiri-button sgiri-border-bottom test sgiri-hover-light-grey"
+                onclick="openMail('Borge');sgiri_close();" id="firstTab">
+                <div class="sgiri-container">
+                    <img class="sgiri-round sgiri-margin-right" src="./img/avatar3.png" style="width:15%;"><span
+                        class="sgiri-opacity sgiri-large">Borge Refsnes</span>
+                    <h6>Subject: Remember Me</h6>
+                    <p>Hello, i just wanted to let you know that i'll be home at...</p>
+                </div>
+            </a>
+            <a href="javascript:void(0)"
+                class="sgiri-bar-item sgiri-button sgiri-border-bottom test sgiri-hover-light-grey"
+                onclick="openMail('Jane');sgiri_close();">
+                <div class="sgiri-container">
+                    <img class="sgiri-round sgiri-margin-right" src="img/avatar5.png" style="width:15%;"><span
+                        class="sgiri-opacity sgiri-large">Jane Doe</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                </div>
+            </a>
+            <a href="javascript:void(0)"
+                class="sgiri-bar-item sgiri-button sgiri-border-bottom test sgiri-hover-light-grey"
+                onclick="openMail('John');sgiri_close();">
+                <div class="sgiri-container">
+                    <img class="sgiri-round sgiri-margin-right" src="./img/avatar2.png" style="width:15%;"><span
+                        class="sgiri-opacity sgiri-large">John Doe</span>
+                    <p>Welcome!</p>
+                </div>
+            </a>
+        </div>
+        <a href="#" class="sgiri-bar-item sgiri-button"><i class="fa fa-paper-plane sgiri-margin-right"></i>Sent</a>
+        <a href="#" class="sgiri-bar-item sgiri-button"><i class="fa fa-hourglass-end sgiri-margin-right"></i>Drafts</a>
+        <a href="#" class="sgiri-bar-item sgiri-button"><i class="fa fa-trash sgiri-margin-right"></i>Trash</a>
+    </nav>
+
+    <!-- Modal that pops up when you click on "New Message" -->
+    <div id="id01" class="sgiri-modal" style="z-index:4">
+        <div class="sgiri-modal-content sgiri-animate-zoom">
+            <div class="sgiri-container sgiri-padding sgiri-red">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="sgiri-button sgiri-red sgiri-right sgiri-xxlarge"><i class="fa fa-remove"></i></span>
+                <h2>Send Mail</h2>
+            </div>
+            <div class="sgiri-panel">
+                <label>To</label>
+                <input class="sgiri-input sgiri-border sgiri-margin-bottom" type="text">
+                <label>From</label>
+                <input class="sgiri-input sgiri-border sgiri-margin-bottom" type="text">
+                <label>Subject</label>
+                <input class="sgiri-input sgiri-border sgiri-margin-bottom" type="text">
+                <input class="sgiri-input sgiri-border sgiri-margin-bottom" style="height:150px"
+                    placeholder="What's on your mind?">
+                <div class="sgiri-section">
+                    <a class="sgiri-button sgiri-red"
+                        onclick="document.getElementById('id01').style.display='none'">Cancel <i
+                            class="fa fa-remove"></i></a>
+                    <a class="sgiri-button sgiri-light-grey sgiri-right"
+                        onclick="document.getElementById('id01').style.display='none'">Send <i
+                            class="fa fa-paper-plane"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay effect when opening the side navigation on small screens -->
+    <div class="sgiri-overlay sgiri-hide-large sgiri-animate-opacity" onclick="sgiri_close()" style="cursor:pointer"
+        title="Close Sidemenu" id="myOverlay"></div>
+
+    <!-- Page content -->
+    <div class="sgiri-main" style="margin-left:320px;">
+        <i class="fa fa-bars sgiri-button sgiri-white sgiri-hide-large sgiri-xlarge sgiri-margin-left sgiri-margin-top"
+            onclick="sgiri_open()"></i>
+        <a href="javascript:void(0)"
+            class="sgiri-hide-large sgiri-red sgiri-button sgiri-right sgiri-margin-top sgiri-margin-right"
+            onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-pencil"></i></a>
+
+        <div id="Borge" class="sgiri-container person">
+            <br>
+            <img class="sgiri-round  sgiri-animate-top" src="./img/avatar3 (1).png" style="width:20%;">
+            <h5 class="sgiri-opacity">Subject: Remember Me</h5>
+            <h4><i class="fa fa-clock-o"></i> From Borge Refsnes, Sep 27, 2015.</h4>
+            <a class="sgiri-button sgiri-light-grey" href="#">Reply<i
+                    class="sgiri-margin-left fa fa-mail-reply"></i></a>
+            <a class="sgiri-button sgiri-light-grey" href="#">Forward<i
+                    class="sgiri-margin-left fa fa-arrow-right"></i></a>
+            <hr>
+            <p>Hello, i just wanted to let you know that i'll be home at lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat.</p>
+            <p>Best Regards, <br>Borge Refsnes</p>
+        </div>
+
+        <div id="Jane" class="sgiri-container person">
+            <br>
+            <img class="sgiri-round sgiri-animate-top" src="./img/avatar5.png" style="width:20%;">
+            <h5 class="sgiri-opacity">Subject: None</h5>
+            <h4><i class="fa fa-clock-o"></i> From Jane Doe, Sep 25, 2015.</h4>
+            <a class="sgiri-button sgiri-light-grey">Reply<i class="sgiri-margin-left fa fa-mail-reply"></i></a>
+            <a class="sgiri-button sgiri-light-grey">Forward<i class="sgiri-margin-left fa fa-arrow-right"></i></a>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat.</p>
+            <p>Forever yours,<br>Jane</p>
+        </div>
+
+        <div id="John" class="sgiri-container person">
+            <br>
+            <img class="sgiri-round sgiri-animate-top" src="./img/avatar2.png" style="width:20%;">
+            <h5 class="sgiri-opacity">Subject: None</h5>
+            <h4><i class="fa fa-clock-o"></i> From John Doe, Sep 23, 2015.</h4>
+            <a class="sgiri-button sgiri-light-grey">Reply<i class="sgiri-margin-left fa fa-mail-reply"></i></a>
+            <a class="sgiri-button sgiri-light-grey">Forward<i class="sgiri-margin-left fa fa-arrow-right"></i></a>
+            <hr>
+            <p>Welcome.</p>
+            <p>That's it!</p>
+        </div>
+
+    </div>
+<script src="app.js"></script>
+</body>
+
+</html>
